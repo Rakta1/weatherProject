@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather App</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="C:/Users/rjpla/Terra/css/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="weather-app">
+      <form id="search-input">
+        <input type="search" placeholder="Enter your Location" id="searchElement" autofocus="on" autocomplete="off" />
+        <input type="submit" value="Search" class="btn btn-dark" />
+        <input id="current" type="button" value="Current" class="btn btn-success">
+      </form>
+      <h1>
+       <span id="city"> Leesburg, Ga </span>
+      </br></br>
+        ️️️⛅ <span id="temperature">84</span>°F 
+    
+   
+        <p><span id="description"></span></br>
+          <span id="humidity">Humidity:35% </span></br><span id="wind">Wind:5mph</span></br>
+        </br><span id="outside"></span>
+           </br>
+          </br>
+        <span id="time"> 3:35 </span></p>
+       
+      </h1>
+      <div class="row">
+        
+        <div class="col">
+          <strong>Mon 6</strong>
+         </br>
+         <div class="mon">🌩️</div>
+         90 / 71</div>
+        <div class="col">
+          <strong>Tue 7</strong>
+         </br>
+         <div class="tue">️️️️☀️</div>
+         95 / 74</div>
+        <div class="col">
+          <strong>Wed 8</strong>
+         </br>
+         <div class="wed">🌤️</div>
+         96 / 76</div>
+        <div class="col">
+          <strong>Thur 9</strong>
+        </br>
+        <div class="thur">🌥️</div>
+        95 / 75</div>
+        <div class="col">
+          <strong>Fri 10</strong>
+        </br>
+        <div class="fri">🌧️</div>
+        94 / 76</div>
+      </div>    
+    </div>
+  </div>
+    <script src="C:/Users/rjpla/Terra/css/script.js"></script>
+  </body>
+</html>
