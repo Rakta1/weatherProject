@@ -20,6 +20,14 @@ form {
 	text-align: center;
 	padding: 15px;
 }
+a {
+	font-size: 14px;
+	text-decoration: none;
+}
+.container {
+	max-width: 1000px;
+	text-align: center;
+}
 .weather-app {
 	background: linear-gradient(-225deg, #5d9fff 0%, #b8dcff 48%, #6bbbff 100%);
 	max-width: 700px;
