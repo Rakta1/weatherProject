@@ -11,6 +11,11 @@ function getWeather(response) {
 	let description = response.data.weather[0].description;
 	let cityElement = document.querySelector("#city");
 	cityElement.innerHTML = city;
+	let iconElement = document.querySelector("#icon");
+	iconElement.setAttribute(
+		"src",
+		`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+	);
 	let tempElement = document.querySelector("#temperature");
 	tempElement.innerHTML = `${temp}`;
 	let descriptionElement = document.querySelector("#description");
