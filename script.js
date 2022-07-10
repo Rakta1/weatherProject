@@ -4,6 +4,7 @@ function getWeather(response) {
 
 	let city = response.data.name;
 	let temp = Math.round(response.data.main.temp);
+	fahrenheitTemp = Math.round(response.data.main.temp);
 	let tempMax = Math.round(response.data.main.temp_max);
 	let humidity = Math.round(response.data.main.humidity);
 	let wind = Math.round(response.data.wind.speed);
@@ -53,24 +54,20 @@ function getWeather(response) {
 
 	dayTime.innerHTML = `${day}, ${hour}:${min} ${amPm}`;
 }
-
-function search(event) {
+function handleSubmit(event) {
 	event.preventDefault();
 	let citySearch = document.querySelector("#searchElement");
-	let cityInput = `${citySearch.value}`;
-	console.log(cityInput);
-
+	let city = citySearch.value;
+	searchCity(city);
+}
+function searchCity(city) {
 	let apiKey = "be6fdca8e2e91988e4c676b7fb94a33b";
 	let endPoint = "https://api.openweathermap.org/data/2.5/weather";
 	let unit = "imperial";
-	let apiUrl = `${endPoint}?q=${cityInput}&appid=${apiKey}&units=${unit}`;
+	let apiUrl = `${endPoint}?q=${city}&appid=${apiKey}&units=${unit}`;
 
 	axios.get(apiUrl).then(getWeather);
 }
-
-let form = document.querySelector("#search-input");
-form.addEventListener("submit", search);
-
 function showPosition(position) {
 	let latitude = position.coords.latitude;
 	let longitude = position.coords.longitude;
@@ -82,6 +79,24 @@ function getCurrentPosition(event) {
 	event.preventDefault();
 	navigator.geolocation.getCurrentPosition(showPosition);
 }
+function showCelsiusTemp(event) {
+	event.preventDefault();
+	let temperatureElement = document.querySelector("#temperature");
+	let celsiusTemperature = (fahrenheitTemp - 32) * 0.5556;
+	cTemp.classList.add("active");
+	fTemp.classList.remove("active");
+	temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+function showFahrenheitTemp(event) {
+	event.preventDefault();
+	cTemp.classList.remove("active");
+	fTemp.classList.add("active");
+	let temperatureElement = document.querySelector("#temperature");
+	temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+}
+let form = document.querySelector("#search-input");
+form.addEventListener("submit", handleSubmit);
+
 let buttonCurrent = document.querySelector("#current");
 buttonCurrent.addEventListener("click", getCurrentPosition);
 
@@ -109,3 +124,12 @@ if (min < 10) {
 }
 
 dayTime.innerHTML = `${day}, ${hour}:${min} ${amPm}`;
+let fahrenheitTemp = null;
+
+let cTemp = document.querySelector("#cLink");
+cTemp.addEventListener("click", showCelsiusTemp);
+
+let fTemp = document.querySelector("#fLink");
+fTemp.addEventListener("click", showFahrenheitTemp);
+
+searchCity("New York");
