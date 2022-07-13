@@ -122,6 +122,10 @@ if (hour > 12) {
 if (min < 10) {
 	min = `0${min}`;
 }
+if (hour < 12) {
+	hour = `${hour}`;
+	amPm = "AM";
+}
 
 dayTime.innerHTML = `${day}, ${hour}:${min} ${amPm}`;
 let fahrenheitTemp = null;
