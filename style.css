@@ -20,6 +20,9 @@ form {
 	text-align: center;
 	padding: 15px;
 }
+a {
+	text-decoration: none;
+}
 
 .container {
 	max-width: 1000px;
@@ -68,10 +71,16 @@ form {
 	font-size: 14px;
 	text-decoration: none;
 }
-#fLink,
-#cLink {
+.units {
 	position: relative;
 	top: -30px;
 	font-size: 15px;
+	text-decoration: none;
+}
+.active {
+	color: black;
+	cursor: default;
+}
+.active:hover {
 	text-decoration: none;
 }
