@@ -54,6 +54,25 @@ function getWeather(response) {
 
 	dayTime.innerHTML = `${day}, ${hour}:${min} ${amPm}`;
 }
+function displayForecast() {
+	let forecastElement = document.querySelector("#forecast");
+	let forecastHTML = `<div class="row">`;
+	let days = ["Mon", "Tues", "Wed", "Thur", "Fri"];
+	days.forEach(function (day) {
+		forecastHTML =
+			forecastHTML +
+			`<div class="col-2">
+          <div class="forecast-date">${day} </div>
+          <img src="https://assets.msn.com/bundles/v1/weather/latest/MostlySunnyDay.svg" alt="sunny" width="42px" class="forecast-date-icon">
+       <div class="forecast-temp">
+        <span class="forecast-temp-max">90°</span> 
+        <span class="forecast-temp-min">71°</span>
+     </div>
+      </div>`;
+	});
+	forecastHTML = forecastHTML + `</div>`;
+	forecastElement.innerHTML = forecastHTML;
+}
 function handleSubmit(event) {
 	event.preventDefault();
 	let citySearch = document.querySelector("#searchElement");
