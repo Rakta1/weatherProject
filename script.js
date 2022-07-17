@@ -2,7 +2,6 @@ function getWeather(response) {
 	console.log(response.data);
 	let city = response.data.name;
 	let temp = Math.round(response.data.main.temp);
-	fahrenheitTemp = Math.round(response.data.main.temp);
 	let tempMax = Math.round(response.data.main.temp_max);
 	let humidity = Math.round(response.data.main.humidity);
 	let wind = Math.round(response.data.wind.speed);
@@ -121,33 +120,11 @@ function getCurrentPosition(event) {
 	event.preventDefault();
 	navigator.geolocation.getCurrentPosition(showPosition);
 }
-function showCelsiusTemp(event) {
-	event.preventDefault();
-	let temperatureElement = document.querySelector("#temperature");
-	let celsiusTemperature = (fahrenheitTemp - 32) * 0.5556;
-	cTemp.classList.add("active");
-	fTemp.classList.remove("active");
-	temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-function showFahrenheitTemp(event) {
-	event.preventDefault();
-	cTemp.classList.remove("active");
-	fTemp.classList.add("active");
-	let temperatureElement = document.querySelector("#temperature");
-	temperatureElement.innerHTML = Math.round(fahrenheitTemp);
-}
+
 let form = document.querySelector("#search-input");
 form.addEventListener("submit", handleSubmit);
 
 let buttonCurrent = document.querySelector("#current");
 buttonCurrent.addEventListener("click", getCurrentPosition);
-
-let fahrenheitTemp = null;
-
-let cTemp = document.querySelector("#cLink");
-cTemp.addEventListener("click", showCelsiusTemp);
-
-let fTemp = document.querySelector("#fLink");
-fTemp.addEventListener("click", showFahrenheitTemp);
 
 searchCity("New York");

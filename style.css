@@ -36,22 +36,8 @@ a {
 	text-align: center;
 	padding: 15px;
 }
-
 #source {
 	font-size: 14px;
-	text-decoration: none;
-}
-.units {
-	position: relative;
-	top: -30px;
-	font-size: 15px;
-	text-decoration: none;
-}
-.active {
-	color: black;
-	cursor: default;
-}
-.active:hover {
 	text-decoration: none;
 }
 .col-2 {
