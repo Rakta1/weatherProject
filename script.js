@@ -13,7 +13,7 @@ function getWeather(response) {
 	let iconElement = document.querySelector("#icon");
 	iconElement.setAttribute(
 		"src",
-		`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+		`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
 	);
 	iconElement.setAttribute("alt", response.data.weather[0].description);
 	let tempElement = document.querySelector("#temperature");
@@ -46,9 +46,13 @@ function getWeather(response) {
 		hour = hour - 12;
 		amPm = "PM";
 	}
+	if (hour == 00) {
+		hour = "12";
+	}
 	if (min < 10) {
 		min = `0${min}`;
 	}
+	hour = hour > 12 ? hour % 12 : hour;
 
 	dayTime.innerHTML = `${day}, ${hour}:${min} ${amPm}`;
 	getForecast(response.data.coord);
@@ -70,7 +74,7 @@ function displayForecast(response) {
 				forecastHTML +
 				`<div class="col-2">
           <div class="forecast-date">${formatDay(forecastDay.dt)} </div>
-          <img src="http://openweathermap.org/img/wn/${
+          <img src="https://openweathermap.org/img/wn/${
 						forecastDay.weather[0].icon
 					}@2x.png" alt="sunny" width="42px" class="forecast-date-icon">
        <div class="forecast-temp">
