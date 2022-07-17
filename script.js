@@ -86,7 +86,7 @@ function displayForecast(response) {
 		}
 	});
 	forecastHTML = forecastHTML + `</div>`;
-	forecastElement.innerHTML = "forecastHTML";
+	forecastElement.innerHTML = forecastHTML;
 }
 function getForecast(coordinates) {
 	let apiKey = "be6fdca8e2e91988e4c676b7fb94a33b";
