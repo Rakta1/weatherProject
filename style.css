@@ -48,25 +48,6 @@ a {
 	cursor: pointer;
 	background: #60a1ff;
 }
-.strong {
-	text-align: center;
-	font-size: 25px;
-}
-.mon {
-	font-size: 40px;
-}
-.tue {
-	font-size: 40px;
-}
-.wed {
-	font-size: 40px;
-}
-.thur {
-	font-size: 45px;
-}
-.fri {
-	font-size: 40px;
-}
 #source {
 	font-size: 14px;
 	text-decoration: none;
@@ -83,4 +64,24 @@ a {
 }
 .active:hover {
 	text-decoration: none;
+}
+.col-2 {
+	border: 2px solid white;
+	border-radius: 20px;
+	text-align: center;
+	padding: 10px;
+	margin: 10px;
+}
+.col-2:hover {
+	cursor: pointer;
+	background: #60a1ff;
+}
+.forecast-date {
+	font-size: 16px;
+}
+.forecast-temp {
+	font-size: 13px;
+}
+.forecast-temp-min {
+	opacity: 0.5;
 }
