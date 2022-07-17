@@ -37,17 +37,6 @@ a {
 	padding: 15px;
 }
 
-.col {
-	border: 2px solid white;
-	border-radius: 20px;
-	text-align: center;
-	padding: 10px;
-	margin: 10px;
-}
-.col:hover {
-	cursor: pointer;
-	background: #60a1ff;
-}
 #source {
 	font-size: 14px;
 	text-decoration: none;
