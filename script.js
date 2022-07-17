@@ -1,7 +1,5 @@
 function getWeather(response) {
 	console.log(response.data);
-	console.log(response.data.coord.latitude);
-
 	let city = response.data.name;
 	let temp = Math.round(response.data.main.temp);
 	fahrenheitTemp = Math.round(response.data.main.temp);
@@ -53,8 +51,10 @@ function getWeather(response) {
 	}
 
 	dayTime.innerHTML = `${day}, ${hour}:${min} ${amPm}`;
+	getForecast(response.data.coord);
 }
-function displayForecast() {
+function displayForecast(response) {
+	console.log(response.data.daily);
 	let forecastElement = document.querySelector("#forecast");
 	let forecastHTML = `<div class="row">`;
 	let days = ["Mon", "Tues", "Wed", "Thur", "Fri"];
@@ -72,6 +72,11 @@ function displayForecast() {
 	});
 	forecastHTML = forecastHTML + `</div>`;
 	forecastElement.innerHTML = "forecastHTML";
+}
+function getForecast(coordinates) {
+	let apiKey = "be6fdca8e2e91988e4c676b7fb94a33b";
+	let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+	axios.get(apiUrl).then(displayForecast);
 }
 function handleSubmit(event) {
 	event.preventDefault();
@@ -119,34 +124,6 @@ form.addEventListener("submit", handleSubmit);
 let buttonCurrent = document.querySelector("#current");
 buttonCurrent.addEventListener("click", getCurrentPosition);
 
-let dayTime = document.querySelector("#time");
-let currentTime = new Date();
-let hour = currentTime.getHours();
-let min = currentTime.getMinutes();
-let days = [
-	`Sunday`,
-	`Monday`,
-	`Tuesday`,
-	`Wednesday`,
-	`Thursday`,
-	`Friday`,
-	`Saturday`,
-];
-let day = days[currentTime.getDay()];
-let amPm = "AM";
-if (hour > 12) {
-	hour = hour - 12;
-	amPm = "PM";
-}
-if (min < 10) {
-	min = `0${min}`;
-}
-if (hour < 12) {
-	hour = `${hour}`;
-	amPm = "AM";
-}
-
-dayTime.innerHTML = `${day}, ${hour}:${min} ${amPm}`;
 let fahrenheitTemp = null;
 
 let cTemp = document.querySelector("#cLink");
@@ -156,4 +133,3 @@ let fTemp = document.querySelector("#fLink");
 fTemp.addEventListener("click", showFahrenheitTemp);
 
 searchCity("New York");
-displayForecast();
