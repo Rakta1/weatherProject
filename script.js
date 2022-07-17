@@ -156,3 +156,4 @@ let fTemp = document.querySelector("#fLink");
 fTemp.addEventListener("click", showFahrenheitTemp);
 
 searchCity("New York");
+displayForecast();
