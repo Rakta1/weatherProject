@@ -40,6 +40,12 @@ a {
 	font-size: 14px;
 	text-decoration: none;
 }
+.units {
+	position: relative;
+	bottom: 30px;
+	right: 35px;
+	font-size: 30px;
+}
 .col-2 {
 	border: 2px solid white;
 	border-radius: 20px;

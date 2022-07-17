@@ -22,7 +22,7 @@ function getWeather(response) {
 	let humidityElement = document.querySelector("#humidity");
 	humidityElement.innerHTML = `Humidity:${humidity}%`;
 	let windSpeed = document.querySelector("#wind");
-	windSpeed.innerHTML = `Wind:${wind} mph`;
+	windSpeed.innerHTML = `Wind:${wind} m/h`;
 	let display = document.querySelector("#outside");
 	display.innerHTML = `Feels like ${feelsLike}°F with a high of ${tempMax}°F`;
 
