@@ -41,7 +41,7 @@ function getWeather(response) {
 	];
 	let day = days[currentTime.getDay()];
 	let amPm = "AM";
-	if ((hour) => 12) {
+	if (hour >= 12) {
 		hour = hour - 12;
 		amPm = "PM";
 	}
